@@ -2,25 +2,36 @@ module Api
   module V1
     class MessagesController < ApplicationController
       def index
-        messages = Message.all.order(created_at: :asc)
-        puts messages.inspect
-        puts "ssss"
-        render json: {ok: 1}
+        messages = Message.order(created_at: :asc)
+        puts "xx"
+        render json: messages
       end
 
       def create
-        message = Message.new(message_params)
-        if message.save
-          render json: message, status: :created
-        else
-          render json: { errors: message.errors.full_messages }, status: :unprocessable_entity
-        end
+        session_id = params[:session_id]
+        user_input = params[:message]
+
+        user_msg = Message.create!(role: 'user', content: user_input, session_id: session_id)
+
+        history = Message.where(session_id: session_id)
+                         .order(:created_at)
+                         .pluck(:role, :content)
+                         .map { |role, content| { role:, content: } }
+
+        reply = ChatReportService.new(history).run
+
+        assistant_msg = Message.create!(role: 'assistant', content: reply, session_id: session_id)
+
+        render json: {
+          user: user_msg,
+          assistant: assistant_msg
+        }, status: :created
       end
 
       private
 
       def message_params
-        params.require(:message).permit(:role, :content)
+        params.permit(:session_id, :message)
       end
     end
   end

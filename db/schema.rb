@@ -15,9 +15,11 @@ ActiveRecord::Schema[7.2].define(version: 2025_06_26_133318) do
   enable_extension "plpgsql"
 
   create_table "messages", force: :cascade do |t|
-    t.string "role"
-    t.text "content"
+    t.string "role", null: false
+    t.text "content", null: false
+    t.string "session_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["session_id"], name: "index_messages_on_session_id"
   end
 end
