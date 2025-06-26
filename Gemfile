@@ -40,8 +40,6 @@ group :development, :test do
   gem "rubocop-rails-omakase", require: false
 end
 
-gem 'sprockets-rails'
-
 # ENV
 gem 'dotenv-rails'
 
@@ -54,13 +52,9 @@ gem 'httparty'             # If you want raw REST
 gem 'sidekiq'
 gem 'redis'
 
-# UI support
-gem 'turbo-rails'
-gem 'stimulus-rails'
-gem 'tailwindcss-rails'
-
 # Env management
 gem 'dotenv-rails'
+gem "rack-cors"
 
 # Optional
 gem 'pgvector'             # For AI similarity search
