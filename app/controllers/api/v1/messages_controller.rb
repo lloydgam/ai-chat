@@ -3,7 +3,6 @@ module Api
     class MessagesController < ApplicationController
       def index
         messages = Message.order(created_at: :asc)
-        puts "xx"
         render json: messages
       end
 

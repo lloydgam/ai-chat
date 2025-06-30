@@ -38,13 +38,18 @@ group :development, :test do
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
+
+  gem 'pry'
+  gem 'pry-rails'
+  gem 'coderay'
+  gem 'method_source'
 end
 
 # ENV
 gem 'dotenv-rails'
 
 # AI
-gem 'openai'
+gem 'ruby-openai', '~> 3.4'
 gem 'graphql-client'       # Monday.com API via GraphQL
 gem 'httparty'             # If you want raw REST
 

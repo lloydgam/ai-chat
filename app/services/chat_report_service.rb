@@ -4,26 +4,23 @@ class ChatReportService
   end
 
   def run
-    client = OpenAI::Client.new(api_key: ENV["OPENAI_API_KEY"])
+    client = OpenAI::Client.new(access_token: ENV["OPENAI_API_KEY"])
 
     response = client.chat(
       parameters: {
-        model: "gpt-4o",
-        temperature: 0.3,
+        model: ENV["OPENAI_MODEL"],
         messages: build_prompt
       }
     )
-
-    response.dig("choices", 0, "message", "content")
-  rescue => e
-    Rails.logger.error("OpenAI error: #{e.message}")
-    "Sorry, I'm having trouble generating a response right now."
+    content = response.dig("choices", 0, "message", "content")
+    raise StandardError, "No content returned by OpenAI: #{response}" unless content
+  
+    content
   end
 
   private
 
   def build_prompt
-    # You can customize the system message here
     [
       { role: "system", content: system_prompt }
     ] + @history
@@ -31,8 +28,8 @@ class ChatReportService
 
   def system_prompt
     <<~PROMPT
-      You are a helpful assistant helping users report bugs and feature requests clearly.
-      Use short, clear sentences and ask for missing details if needed.
+      You are a helpful assistant for engineers and PMs reporting bugs or feature requests.
+      Respond clearly and ask relevant follow-up questions.
     PROMPT
   end
 end
