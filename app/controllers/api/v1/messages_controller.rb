@@ -1,6 +1,8 @@
 module Api
   module V1
     class MessagesController < ApplicationController
+      before_action :doorkeeper_authorize!
+
       def index
         messages = Message.order(created_at: :asc)
         render json: messages
