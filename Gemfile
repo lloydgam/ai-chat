@@ -62,6 +62,7 @@ gem "rack-cors"
 # Optional
 gem 'pgvector'             # For AI similarity search
 gem 'doorkeeper'
+gem 'zeitwerk', '< 2.7'
 
 
 
