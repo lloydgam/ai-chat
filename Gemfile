@@ -57,8 +57,6 @@ gem 'httparty'             # If you want raw REST
 gem 'sidekiq'
 gem 'redis'
 
-# Env management
-gem 'dotenv-rails'
 gem "rack-cors"
 
 # Optional

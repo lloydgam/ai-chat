@@ -6,3 +6,6 @@ rm -f /app/tmp/pids/server.pid
 
 # Run the main container command (passed as CMD in Dockerfile)
 exec "$@"
+
+bundle exec rails db:migrate
+bundle exec rails db:seed
