@@ -1,4 +1,4 @@
-# CVLinens AI
+# chat AI
 
 A Rails-based AI assistant for bug reporting, feature submission, and grooming support. This app integrates with OpenAI and provides both an API and web interface. Secured via OAuth using Doorkeeper and Dockerized for isolated local development.
 
@@ -31,8 +31,8 @@ A Rails-based AI assistant for bug reporting, feature submission, and grooming s
 ### 🔧 1. Clone and Configure
 
 ```bash
-git clone https://github.com/your-org/cvlinens_ai.git
-cd cvlinens_ai
+git clone https://github.com/your-org/chat_ai.git
+cd chat_ai
 cp .env.example .env
 
 MONDAY_API_KEY=your_token
