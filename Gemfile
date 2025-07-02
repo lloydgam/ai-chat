@@ -49,7 +49,7 @@ end
 gem 'dotenv-rails'
 
 # AI
-gem 'ruby-openai', '~> 3.4'
+gem 'ruby-openai', '~> 8.1'
 gem 'graphql-client'       # Monday.com API via GraphQL
 gem 'httparty'             # If you want raw REST
 
