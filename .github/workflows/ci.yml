@@ -16,7 +16,7 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.2.3
+          ruby-version: .ruby-version
           bundler-cache: true
           cache-version: v2  # ← bump this
 
@@ -32,9 +32,9 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.2.3
+          ruby-version: .ruby-version
           bundler-cache: true
-          cache-version: v2  # ← bump this
+          cache-version: v2
 
       - name: Lint code for consistent style
         run: bin/rubocop -f github
@@ -68,7 +68,7 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.2.3
+          ruby-version: .ruby-version
           bundler-cache: true
           cache-version: v2
 
