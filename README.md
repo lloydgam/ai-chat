@@ -1,24 +1,49 @@
-# README
+# CVLinens AI
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A Rails-based AI assistant for bug reporting, feature submission, and grooming support. This app integrates with OpenAI and provides both an API and web interface. Secured via OAuth using Doorkeeper and Dockerized for isolated local development.
 
-Things you may want to cover:
+---
 
-* Ruby version
+## 🚀 Features
 
-* System dependencies
+- 🧠 AI-powered assistant via OpenAI (supports GPT-3.5 or GPT-4o)
+- 💬 Chat-based bug/feature reporting system
+- 📌 Integration-ready with Monday.com or other task systems
+- 🔐 Internal OAuth2 provider via Doorkeeper
+- 🐳 Full Docker support
+- 🔄 Auto-seed OAuth client + create DB on startup
 
-* Configuration
+---
 
-* Database creation
+## 📦 Stack
 
-* Database initialization
+- **Backend:** Ruby on Rails (API + Hotwire)
+- **AI:** OpenAI GPT API (`ruby-openai`)
+- **Auth:** Doorkeeper OAuth 2.0
+- **DB:** PostgreSQL
+- **Cache:** Redis
+- **Containerization:** Docker + Docker Compose
 
-* How to run the test suite
+---
 
-* Services (job queues, cache servers, search engines, etc.)
+## 🛠 Setup Instructions
 
-* Deployment instructions
+### 🔧 1. Clone and Configure
 
-* ...
+```bash
+git clone https://github.com/your-org/cvlinens_ai.git
+cd cvlinens_ai
+cp .env.example .env
+
+MONDAY_API_KEY=your_token
+OPENAI_API_KEY=your_openai_key
+OPENAI_MODEL=gpt-4o
+REDIS_URL=redis://redis:6379/1
+OAUTH_CLIENT_ID=client_id
+OAUTH_CLIENT_SECRET=secret
+DATABASE_HOST=
+DATABASE_USERNAME=
+DATABASE_PASSWORD=
+
+docker-compose down --volumes --remove-orphans
+docker-compose up --build
