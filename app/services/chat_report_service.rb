@@ -21,8 +21,13 @@ class ChatReportService
   private
 
   def build_prompt
+    ticketing_prompt = PromptBuilderService.new(
+      context: ticketing,
+      extras: { env: Rails.env }
+    ).build
+
     [
-      { role: "system", content: system_prompt }
+      { role: "system", content: ticketing_prompt + system_prompt }
     ] + @history
   end
 
