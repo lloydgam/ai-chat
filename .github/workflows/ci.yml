@@ -68,6 +68,7 @@ jobs:
         with:
           ruby-version: 3.2.3
           bundler-cache: true
+          cache-version: v2
 
       - name: Run tests
         env:
