@@ -41,9 +41,10 @@ OPENAI_MODEL=gpt-4o
 REDIS_URL=redis://redis:6379/1
 OAUTH_CLIENT_ID=client_id
 OAUTH_CLIENT_SECRET=secret
-DATABASE_HOST=
-DATABASE_USERNAME=
-DATABASE_PASSWORD=
+DATABASE_HOST=db
+DATABASE_USERNAME=username
+DATABASE_PASSWORD=pwd
+
 
 docker-compose down --volumes --remove-orphans
 docker-compose up --build
