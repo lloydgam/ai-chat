@@ -169,7 +169,13 @@ GEM
     parser (3.3.8.0)
       ast (~> 2.4.1)
       racc
-    pg (1.5.9)
+    pg (1.6.2)
+    pg (1.6.2-aarch64-linux)
+    pg (1.6.2-aarch64-linux-musl)
+    pg (1.6.2-arm64-darwin)
+    pg (1.6.2-x86_64-darwin)
+    pg (1.6.2-x86_64-linux)
+    pg (1.6.2-x86_64-linux-musl)
     pgvector (0.3.2)
     pp (0.6.2)
       prettyprint
@@ -311,7 +317,7 @@ DEPENDENCIES
   graphql-client
   httparty
   method_source
-  pg (~> 1.1)
+  pg (~> 1.6)
   pgvector
   pry
   pry-rails
