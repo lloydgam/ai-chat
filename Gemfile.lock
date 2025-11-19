@@ -289,7 +289,7 @@ GEM
       base64
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
-    zeitwerk (2.6.18)
+    zeitwerk (2.7.3)
 
 PLATFORMS
   aarch64-linux-gnu
@@ -323,7 +323,7 @@ DEPENDENCIES
   ruby-openai (~> 3.4)
   sidekiq
   tzinfo-data
-  zeitwerk (< 2.7)
+  zeitwerk (< 2.8)
 
 BUNDLED WITH
    2.6.9
